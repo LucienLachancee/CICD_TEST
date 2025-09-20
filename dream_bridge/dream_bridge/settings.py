@@ -13,7 +13,11 @@ MISTRAL_API_KEY = os.environ.get("MISTRAL_API_KEY")
 DEBUG = True
 SECRET_KEY = 'django-insecure-xqf#8#%53e&o+nz2=#2b5^yqhryecmdz6o0u@(_l)yd^#ndd^a'
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+# settings.py
+
+ALLOWED_HOSTS = ['51.77.151.108', 'localhost', '127.0.0.1']
+
 
 # Origines de confiance (CSRF)
 CSRF_TRUSTED_ORIGINS = [
