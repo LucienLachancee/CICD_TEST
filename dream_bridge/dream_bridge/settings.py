@@ -23,7 +23,9 @@ ALLOWED_HOSTS = ['51.77.151.108', 'localhost', '127.0.0.1']
 CSRF_TRUSTED_ORIGINS = [
     'http://127.0.0.1:8000',
     'http://localhost:8000',
+    'http://51.77.151.108:8000',
 ]
+
 
 INSTALLED_APPS = [
     'dream_bridge_app.apps.DreamBridgeAppConfig',
