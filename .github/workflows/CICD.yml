@@ -22,7 +22,7 @@ jobs:
         source venv/bin/activate
         python -m pip install --upgrade pip
         pip install -r dream_bridge/requirements.txt
-        python manage.py migrate
+        python dream_bridge/manage.py migrate
 
   deploy:
     needs: build
