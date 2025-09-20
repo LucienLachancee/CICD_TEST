@@ -21,7 +21,7 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
+        pip install -r dream_bridge/requirements.txt
         python manage.py migrate
 
   deploy:
@@ -40,7 +40,7 @@ jobs:
           cd /home/ubuntu/CICD_TEST/dream_bridge
           git pull origin main
           source venv/bin/activate
-          pip install -r requirements.txt
+          pip install -r dream_bridge/requirements.txt
           python manage.py migrate
           sudo systemctl restart django
           sudo systemctl restart celery
