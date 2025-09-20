@@ -16,13 +16,14 @@ jobs:
       with:
         python-version: '3.11'
 
-    - name: Create and activate virtual environment + install dependencies + lint + migrate
+    - name: Create and activate virtual environment + install dependencies + lint + migrate + collectstatic
       run: |
         python -m venv venv
         source venv/bin/activate
         python -m pip install --upgrade pip
         pip install -r dream_bridge/requirements.txt
         python dream_bridge/manage.py migrate
+        python dream_bridge/manage.py collectstatic --noinput
 
   deploy:
     needs: build
@@ -42,5 +43,6 @@ jobs:
           source venv/bin/activate
           pip install -r dream_bridge/requirements.txt
           python manage.py migrate
+          python manage.py collectstatic --noinput
           sudo systemctl restart django
           sudo systemctl restart celery
