@@ -1,8 +1,8 @@
-# Déclencheur : push ou pull request sur main
-push:
-  branches: [main]
-pull_request:
-  branches: [main]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   build:
@@ -21,8 +21,8 @@ jobs:
         python -m venv venv
         source venv/bin/activate
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        python manage.py migrate
+        pip install -r dream_bridge/requirements.txt
+        python dream_bridge/manage.py migrate
 
   deploy:
     needs: build
@@ -40,7 +40,7 @@ jobs:
           cd /home/ubuntu/CICD_TEST/dream_bridge
           git pull origin main
           source venv/bin/activate
-          pip install -r requirements.txt
+          pip install -r dream_bridge/requirements.txt
           python manage.py migrate
           sudo systemctl restart django
           sudo systemctl restart celery
